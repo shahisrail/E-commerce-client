@@ -8,7 +8,7 @@ import Provider from "./AuthProvider/Provider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider>
+    <Provider >
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

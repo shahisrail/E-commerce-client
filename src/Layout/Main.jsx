@@ -7,8 +7,10 @@ const Main = () => {
   return (
     <div>
       <Nav></Nav>
-      <Outlet></Outlet>
+     <div className="max-w-7xl mx-auto">
+     <Outlet></Outlet>
       <Fotter></Fotter>
+     </div>
     </div>
   );
 };
