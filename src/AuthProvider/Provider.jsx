@@ -1,16 +1,16 @@
 import React from 'react';
 import { createContext, useEffect, useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  signOut,
-  GithubAuthProvider,
-  
-} from "firebase/auth";
+    import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup, 
+    GoogleAuthProvider, 
+    signOut,
+    GithubAuthProvider,
+    
+    } from "firebase/auth";
 // import app from '../Firebase/Firebase.config'
 import { app } from "../Pages/Firebase/Firebase.config";
 
