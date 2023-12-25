@@ -1,25 +1,16 @@
-// import React from 'react';
 
-// const Regestar = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default Regestar;
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import {  updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet";
-import { FaGoogle } from "react-icons/fa";
-import { AuthContext } from "../../../AuthProbider/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../../../AuthProvider/Provider";
+
 const Regestar = () => {
   // use context
-  const { user,setUser, createUser, signinWithGoogle } = useContext(AuthContext);
+  const { user,setUser, createUser, signinWithGoogle,signinWithGithub } = useContext(AuthContext);
    const navigate = useNavigate();
    const location = useLocation();
   const handelresgtare = (e) => {
@@ -87,6 +78,24 @@ const Regestar = () => {
         Swal.fire({
           icon: "error",
           title: "oops",
+          text: error.message,
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      });
+  };
+  const handleGithubLogin = () => {
+    signinWithGithub()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "GIthub Sign-in Successful",
+        });
+        navigate(location?.state ? location.state : "/dashboard");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Github Sign-in Failed",
           text: error.message,
           footer: '<a href="">Why do I have this issue?</a>',
         });
@@ -165,16 +174,24 @@ const Regestar = () => {
           <div className="form-control mt-6">
             <button className="btn btn-primary">Registare</button>
           </div>
-          <div className="form-control mt-6">
-            <button
-              onClick={handleGoogleLogin}
-              className="mx-auto w-[200px]  rounded-full h-[100px]"
-            >
-              <button   className="btn font-medium ">
-                Login with <FaGoogle className="text-blue bg-white"></FaGoogle>
-              </button>
+          <div className="  flex flex-col md:flex-row justify-center md:gap-5">
+          <button
+            onClick={handleGoogleLogin}
+            className=" rounded-full h-[100px]"
+          >
+            <button className="btn font-medium w-[180px] ">
+              Login with <FaGoogle></FaGoogle>{" "}
             </button>
-          </div>
+          </button>
+          <button
+            onClick={handleGithubLogin}
+            className="  rounded-full h-[100px]"
+          >
+            <button className="btn font-medium w-[180px] ">
+              Login with <FaGithub></FaGithub>
+            </button>
+          </button>
+        </div>
         </form>
         <p className="text-center mt-5">
           Alredy Have an account
