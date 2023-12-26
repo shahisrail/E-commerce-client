@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/Provider";
+import Swal from "sweetalert2";
 
 const Nav = () => {
   const navLinks = (
@@ -13,7 +14,7 @@ const Nav = () => {
         <NavLink to="/aboutpage">About</NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard/maketodo">Dashboard</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
       <li>
         <NavLink to="/login">Login</NavLink>
@@ -96,7 +97,7 @@ user && user.displayName
       <div className="navbar-end">
         <h1 className="hidden md:block"> {useName} </h1>
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar hidden md:block">
-          <div className="w-10 rounded-full ">
+          <div className=" rounded-full ">
             <img src={userimg} alt="" />
           </div>
         </label>

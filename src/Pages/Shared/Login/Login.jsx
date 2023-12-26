@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../../AuthProvider/Provider";
+import SocalLogin from "../../../Components/SocialLogin/SocalLogin";
 
 const Login = () => {
   const { signin, signinWithGoogle, signinWithGithub } =
@@ -22,7 +23,7 @@ const Login = () => {
           icon: "success",
           title: "Login Successful",
         });
-        navigate(location?.state ? location.state : "/dashboard/maketodo");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         Swal.fire({
@@ -40,7 +41,7 @@ const Login = () => {
           icon: "success",
           title: "Google Sign-in Successful",
         });
-        navigate(location?.state ? location.state : "/dashboard");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         Swal.fire({
@@ -114,24 +115,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="  flex flex-col md:flex-row justify-center md:gap-5">
-          <button
-            onClick={handleGoogleLogin}
-            className=" rounded-full h-[100px]"
-          >
-            <button className="btn font-medium w-[180px] ">
-              Login with <FaGoogle></FaGoogle>{" "}
-            </button>
-          </button>
-          <button
-            onClick={handleGithubLogin}
-            className="  rounded-full h-[100px]"
-          >
-            <button className="btn font-medium w-[180px] ">
-              Login with <FaGithub></FaGithub>
-            </button>
-          </button>
-        </div>
+          <SocalLogin></SocalLogin>
         <div className="form-control mt-6"></div>
         <p className="text-center mt-5">
           Dont have an account?

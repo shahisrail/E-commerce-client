@@ -3,26 +3,38 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Shared/Login/Login";
 import Regestar from "../Pages/Shared/Login/Regester/Regestar";
+import Dashbord from "../Layout/Dashbord";
+import AllUsers from "../Pages/Dashborad/AdminRoutes/AllUsers";
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children:[
-        {
-            path:"/",
-            element:<Home></Home>
-        },
-        
-      ]
-    },
-    {
-      path:'/login',
-      element:<Login></Login>
-    },
-    {
-      path:'/register',
-      element:<Regestar></Regestar>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Regestar></Regestar>,
+  },
+  {
+    path: "dashboard",
+    element: <Dashbord></Dashbord>,
+    // addmin routes
+    children: [
+      {
+        path: "allUsers",
+        element: <AllUsers></AllUsers>,
+      },
+    ],
+  },
+]);
 
-  export default router
+export default router;

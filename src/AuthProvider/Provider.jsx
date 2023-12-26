@@ -9,6 +9,7 @@ import { createContext, useEffect, useState } from "react";
     GoogleAuthProvider, 
     signOut,
     GithubAuthProvider,
+    updateProfile,
     
     } from "firebase/auth";
 // import app from '../Firebase/Firebase.config'
@@ -39,16 +40,6 @@ const Provider = ({ children }) => {
       return signOut(auth);
     };
   
-    // const signinWithGoogle = () => {
-    //   setLoading(true);
-    //   const provider = new GoogleAuthProvider();
-    //   return signInWithPopup(auth, provider);
-    // };
-    // const signinWithGithub = () => {
-    //   setLoading(true);
-    //   const provider = new GithubAuthProvider();
-    //   return signInWithPopup(auth, provider);
-    // };
     
   
   const signinWithGoogle = () => {
@@ -62,6 +53,13 @@ const Provider = ({ children }) => {
     const provider = new GithubAuthProvider();
     return signInWithPopup(auth, provider);
   };
+    /*Update user   */
+    const userProfileUpdate = (name, photo) => {
+      return updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+      });
+    };
   
   
     useEffect(() => {
@@ -83,6 +81,7 @@ const Provider = ({ children }) => {
       signinWithGoogle,
       setUser,
       signinWithGithub,
+      userProfileUpdate,
     };
   
     return (
