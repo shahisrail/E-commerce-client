@@ -5,6 +5,9 @@ import Login from "../Pages/Shared/Login/Login";
 import Regestar from "../Pages/Shared/Login/Regester/Regestar";
 import Dashbord from "../Layout/Dashbord";
 import AllUsers from "../Pages/Dashborad/AdminRoutes/AllUsers";
+import SallerHome from "../Pages/Dashborad/SalllerRoutes/SallerHome";
+import AdminHome from "../Pages/Dashborad/AdminRoutes/AdminHome";
+import UserHome from "../Pages/Dashborad/UserRoutes/UserHome";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,20 @@ const router = createBrowserRouter([
         path: "allUsers",
         element: <AllUsers></AllUsers>,
       },
+      {
+        path:'adminHome',
+        element:<AdminHome></AdminHome>
+      },
+      // saller dashbord 
+      {
+        path:'sallerHome',
+        element:<SallerHome></SallerHome>
+      },
+      // user dashbord
+      {
+        path:"userHome",
+        element:<UserHome></UserHome>
+      }
     ],
   },
 ]);
