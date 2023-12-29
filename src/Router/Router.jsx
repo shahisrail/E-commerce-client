@@ -8,6 +8,8 @@ import AllUsers from "../Pages/Dashborad/AdminRoutes/AllUsers";
 import SallerHome from "../Pages/Dashborad/SalllerRoutes/SallerHome";
 import AdminHome from "../Pages/Dashborad/AdminRoutes/AdminHome";
 import UserHome from "../Pages/Dashborad/UserRoutes/UserHome";
+import AddProduct from "../Pages/Dashborad/SalllerRoutes/AddProduct";
+import SellerReq from "../Pages/Dashborad/AdminRoutes/SellerReq";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,10 +42,18 @@ const router = createBrowserRouter([
         path:'adminHome',
         element:<AdminHome></AdminHome>
       },
+      {
+        path:'sallerRequest',
+        element:<SellerReq></SellerReq>
+      },
       // saller dashbord 
       {
         path:'sallerHome',
         element:<SallerHome></SallerHome>
+      },
+      {
+       path:'addProduct',
+       element:<AddProduct></AddProduct>
       },
       // user dashbord
       {

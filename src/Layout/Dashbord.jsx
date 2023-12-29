@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaAd, FaHome, FaProductHunt, FaUser } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../Pages/Hooks/UseAdmin";
 import UseSaller from "../Pages/Hooks/UseSaller";
@@ -51,6 +51,11 @@ const Dashbord = () => {
                   All Users <FaUser></FaUser>
                 </NavLink>
               </li>
+              <li className="flex  items-center gap-2 ">
+                <NavLink to="/dashboard/sallerRequest">
+                  Product request <FaAd></FaAd>
+                </NavLink>
+              </li>
             </>
           )}
           {isSaller && (
@@ -61,7 +66,12 @@ const Dashbord = () => {
               </h2>
               <li className="flex items-center gap-2 mt-10 p-3">
                 <NavLink to="/dashboard/sallerHome">
-                  Saller Home <FaUser></FaUser>
+                  Saller Home <FaHome></FaHome>
+                </NavLink>
+              </li>
+              <li className="flex items-center gap-2">
+                <NavLink to="/dashboard/addProduct">
+                    Add product <FaProductHunt></FaProductHunt>
                 </NavLink>
               </li>
             </>
