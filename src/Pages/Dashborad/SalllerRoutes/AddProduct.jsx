@@ -17,11 +17,12 @@ const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = UseAxiosPublic();
   const axiosSecure = UseSecure();
-  const email = user?.eamil
+  const email = user?.email
   const sellername =  user?.displayName
   const photo = user?.photoURL
   const status = 'pending'
   const onSubmit = async (data) => {
+    console.log(email);
     console.log(data);
     // image upload to imgbb and then get an url
     const imageFile = { image: data.image[0] };

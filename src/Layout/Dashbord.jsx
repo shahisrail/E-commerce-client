@@ -74,6 +74,11 @@ const Dashbord = () => {
                     Add product <FaProductHunt></FaProductHunt>
                 </NavLink>
               </li>
+              <li className="flex items-center gap-2">
+                <NavLink to="/dashboard/myProduct">
+                  My Product <FaProductHunt></FaProductHunt>
+                </NavLink>
+              </li>
             </>
           )}
           {!isAdmin && !isSaller && user && (

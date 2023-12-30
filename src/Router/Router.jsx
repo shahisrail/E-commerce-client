@@ -10,6 +10,7 @@ import AdminHome from "../Pages/Dashborad/AdminRoutes/AdminHome";
 import UserHome from "../Pages/Dashborad/UserRoutes/UserHome";
 import AddProduct from "../Pages/Dashborad/SalllerRoutes/AddProduct";
 import SellerReq from "../Pages/Dashborad/AdminRoutes/SellerReq";
+import MyProduct from "../Pages/Dashborad/SalllerRoutes/MyProduct";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path:'sallerHome',
         element:<SallerHome></SallerHome>
+      },
+      {
+        path:'myProduct',
+        element:<MyProduct></MyProduct>
       },
       {
        path:'addProduct',
