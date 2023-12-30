@@ -11,6 +11,7 @@ import UserHome from "../Pages/Dashborad/UserRoutes/UserHome";
 import AddProduct from "../Pages/Dashborad/SalllerRoutes/AddProduct";
 import SellerReq from "../Pages/Dashborad/AdminRoutes/SellerReq";
 import MyProduct from "../Pages/Dashborad/SalllerRoutes/MyProduct";
+import UpdateProduct from "../Pages/Dashborad/SalllerRoutes/UpdateProduct";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
       {
         path:'myProduct',
         element:<MyProduct></MyProduct>
+      },
+      {
+        path:'updateMyproduct/:id',
+        element:<UpdateProduct></UpdateProduct>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/updateMyproduct/${params.id}`
+          ),
       },
       {
        path:'addProduct',

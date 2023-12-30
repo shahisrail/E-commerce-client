@@ -1,33 +1,21 @@
-// import React from 'react';
-
-// const Myproduct = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default Myproduct;
-
-
 import { useQuery } from "@tanstack/react-query";
-import UseAxiosHoks from "./UseAxiosHoks";
+
 import UseAuth from "./UseAuth";
+import UseSecure from "./UseSecure";
 
 const Myproduct = () => {
-  const axiosSecure = UseAxiosHoks();
+  const axiosSecure = UseSecure();
   const { user } = UseAuth();
 
   const {
-    data: myServay = [],
+    data: myProduct = [],
     isPending: loading,
     refetch,
   } = useQuery({
-    queryKey: ["myServay",user.email],
+    queryKey: ["myProduct", user?.email],
     queryFn: async () => {
       try {
-       const res = await axiosSecure.get(`/myServay?email=${user.email}`); 
+        const res = await axiosSecure.get(`/myProduct?email=${user.email}`);
         return res.data;
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -36,7 +24,7 @@ const Myproduct = () => {
     },
   });
 
-  return [myServay, loading, refetch];
+  return [myProduct, loading, refetch];
 };
 
 export default Myproduct;

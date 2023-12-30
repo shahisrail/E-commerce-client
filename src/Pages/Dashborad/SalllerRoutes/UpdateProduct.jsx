@@ -1,4 +1,5 @@
 
+
 import React from "react";
 
 import { useForm } from "react-hook-form";
@@ -12,7 +13,7 @@ import UseAuth from "../../Hooks/UseAuth";
 
 const image_hosting_key = "19163d719edced790060b75a4f9496be";
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-const AddProduct = () => {
+const UpdateProduct = () => {
     const {user} = UseAuth()
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = UseAxiosPublic();
@@ -41,7 +42,7 @@ const AddProduct = () => {
         image: res.data.data.display_url,
         Ratings:data.Ratings,
         Discounts:data.Discounts,
-        discriptoin:data.discriptoin,
+        Discriptoin:data.discriptoin,
         email,
         sellername,
         photo,
@@ -76,6 +77,7 @@ const AddProduct = () => {
           <input
             type="text"
             placeholder="Product Name"
+           defaultValue="name"
             {...register("name", { required: true })}
             className="input input-bordered w-full "
           />
@@ -87,7 +89,7 @@ const AddProduct = () => {
               <span className="label-text">Category</span>
             </label>
             <select
-              defaultValue="default"
+              defaultValue="category"
               {...register("category", { required: true })}
               className="select select-bordered w-full"
             >
@@ -167,6 +169,7 @@ const AddProduct = () => {
             <input
               type="number"
               placeholder="Price"
+              defaultValue="price"
               {...register("price", { required: true })}
               className="input input-bordered w-full "
             />
@@ -179,7 +182,7 @@ const AddProduct = () => {
               <span className="label-text">Brand</span>
             </label>
             <select
-              defaultValue="default"
+              defaultValue="Brand"
               {...register("Brand", { required: true })}
               className="select select-bordered w-full"
             >
@@ -249,6 +252,7 @@ const AddProduct = () => {
             <input
               type="number"
               placeholder="Stock"
+              defaultValue="Stock"
               {...register("Stock", { required: true })}
               className="input input-bordered w-full "
             />
@@ -262,12 +266,13 @@ const AddProduct = () => {
             </label>
             <input
               type="number"
+              defaultValue="Ratings"
               placeholder="Ratings"
               {...register("Ratings", { required: true })}
               className="input input-bordered w-full "
             />
           </div>
-          {/* Discounts */}
+          {/*Discounts */}
           <div className="form-control w-full ">
             <label className="label">
               <span className="label-text">Discounts</span>
@@ -275,6 +280,7 @@ const AddProduct = () => {
             <input
               type="number"
               placeholder="Discounts"
+              defaultValue='Discounts'
               {...register("Discounts", { required: true })}
               className="input input-bordered w-full "
             />
@@ -289,6 +295,7 @@ const AddProduct = () => {
             {...register("discriptoin", { required: true })}
             className="textarea textarea-bordered h-24"
             placeholder="Product Description"
+            defaultValue="discriptoin"
           ></textarea>
         </div>
 
@@ -308,4 +315,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
