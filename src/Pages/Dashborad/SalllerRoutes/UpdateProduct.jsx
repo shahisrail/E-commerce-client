@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 import { useForm } from "react-hook-form";
@@ -10,18 +8,17 @@ import UseSecure from "../../Hooks/UseSecure";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import UseAuth from "../../Hooks/UseAuth";
 
-
 const image_hosting_key = "19163d719edced790060b75a4f9496be";
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const UpdateProduct = () => {
-    const {user} = UseAuth()
+  const { user } = UseAuth();
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = UseAxiosPublic();
   const axiosSecure = UseSecure();
-  const email = user?.email
-  const sellername =  user?.displayName
-  const photo = user?.photoURL
-  const status = 'pending'
+  const email = user?.email;
+  const sellername = user?.displayName;
+  const photo = user?.photoURL;
+  const status = "pending";
   const onSubmit = async (data) => {
     console.log(email);
     console.log(data);
@@ -40,26 +37,27 @@ const UpdateProduct = () => {
         Stock: data.Stock,
         Brand: data.Brand,
         image: res.data.data.display_url,
-        Ratings:data.Ratings,
-        Discounts:data.Discounts,
-        Discriptoin:data.discriptoin,
+        Ratings: data.Ratings,
+        Discounts: data.Discounts,
+        Discriptoin: data.discriptoin,
         email,
         sellername,
         photo,
-        status
-
-
-        
+        status,
       };
-      const menuRes = await axiosSecure.post("/products", productsIteam);
-      console.log(menuRes.data);
-      if (menuRes.data.insertedId) {
+      console.log(data);
+      const servayRes = await axiosSecure.patch(
+        `/myProduct/${_id}`,
+        productsIteam
+      );
+      console.log(servayRes.data);
+      if (servayRes.data.modifiedCount > 0) {
         // show  success popup
-        reset();
+        // reset();
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `${data.name} is added to the menu`,
+          title: `${data.category} is updates to the servay`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -77,8 +75,8 @@ const UpdateProduct = () => {
           <input
             type="text"
             placeholder="Product Name"
-           defaultValue="name"
             {...register("name", { required: true })}
+            defaultValue={name}
             className="input input-bordered w-full "
           />
         </div>
@@ -89,8 +87,8 @@ const UpdateProduct = () => {
               <span className="label-text">Category</span>
             </label>
             <select
-              defaultValue="category"
               {...register("category", { required: true })}
+                // defaultValue={category}
               className="select select-bordered w-full"
             >
               <option disabled value="default">
@@ -169,7 +167,7 @@ const UpdateProduct = () => {
             <input
               type="number"
               placeholder="Price"
-              defaultValue="price"
+            //   defaultValue={price}
               {...register("price", { required: true })}
               className="input input-bordered w-full "
             />
@@ -280,7 +278,7 @@ const UpdateProduct = () => {
             <input
               type="number"
               placeholder="Discounts"
-              defaultValue='Discounts'
+              defaultValue="Discounts"
               {...register("Discounts", { required: true })}
               className="input input-bordered w-full "
             />

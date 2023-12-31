@@ -7,13 +7,13 @@ const MyProduct = () => {
   const [myProducts] = Myproduct(); // Assuming myProduct is an array of products
 
   return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 ">
-        <div className="product-list">
+      <div className=" ">
+        <div className="product-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-5">
       {myProducts.map((product) => (
         <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img
-              class="p-8 rounded-t-lg"
+              class="p-8 w-[400px] h-[300px] rounded-t-lg"
               src={product.image}
               alt="product image"
             />
@@ -21,7 +21,7 @@ const MyProduct = () => {
           <div class="px-5 pb-5">
             <a href="#">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Saller Name: {product.name}
+              Saller Name: {product.Sallername}
               </h5>
               <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               Category: {product.category}

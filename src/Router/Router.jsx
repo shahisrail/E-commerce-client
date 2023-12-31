@@ -41,39 +41,37 @@ const router = createBrowserRouter([
         element: <AllUsers></AllUsers>,
       },
       {
-        path:'adminHome',
-        element:<AdminHome></AdminHome>
+        path: "adminHome",
+        element: <AdminHome></AdminHome>,
       },
       {
-        path:'sallerRequest',
-        element:<SellerReq></SellerReq>
+        path: "sallerRequest",
+        element: <SellerReq></SellerReq>,
       },
-      // saller dashbord 
+      // saller dashbord
       {
-        path:'sallerHome',
-        element:<SallerHome></SallerHome>
-      },
-      {
-        path:'myProduct',
-        element:<MyProduct></MyProduct>
+        path: "sallerHome",
+        element: <SallerHome></SallerHome>,
       },
       {
-        path:'updateMyproduct/:id',
-        element:<UpdateProduct></UpdateProduct>,
+        path: "myProduct",
+        element: <MyProduct></MyProduct>,
+      },
+      {
+        path: "updateMyproduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/updateMyproduct/${params.id}`
-          ),
+          fetch(`http://localhost:5000/updateMyproduct/${params.id}`),
       },
       {
-       path:'addProduct',
-       element:<AddProduct></AddProduct>
+        path: "addProduct",
+        element: <AddProduct></AddProduct>,
       },
       // user dashbord
       {
-        path:"userHome",
-        element:<UserHome></UserHome>
-      }
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
     ],
   },
 ]);
